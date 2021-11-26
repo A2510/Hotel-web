@@ -338,6 +338,8 @@ def all_bookings(request):
         messages.warning(request,"No Bookings Found")
     return HttpResponse(render(request,'staff/allbookings.html',{'bookings':bookings}))
     
-
+@login_required(login_url='/staff')
+def inventory(request):
+    return HttpResponse(render(request,'staff/inventory.html'))
 
         

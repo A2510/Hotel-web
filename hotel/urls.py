@@ -33,6 +33,7 @@ urlpatterns = [
     path('logout', views.logoutuser,name="logout"),
     path('staff/panel', views.panel,name="staffpanel"),
     path('staff/allbookings', views.all_bookings,name="allbookigs"),
+    path('staff/inventory', views.inventory,name="inventory"),
     
     path('staff/panel/add-new-location', views.add_new_location,name="addnewlocation"),
     path('staff/panel/edit-room', views.edit_room),

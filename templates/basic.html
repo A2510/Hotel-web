@@ -58,6 +58,11 @@
                         </li>
                     {% endif %}
                     
+                    {% if user.is_staff %}
+                    <li class="nav-item active">
+                            <a class="nav-link text-bold" href="/staff/inventory">Inventory </a>
+                        </li>
+                    {% endif %}
                     
                     
                         
