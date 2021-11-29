@@ -1,4 +1,4 @@
-{% extends 'basic.html' %} {% block title %}Hotel Krishna {% endblock title %}
+{% extends 'basic.html' %} {% block title %}Hotel Sinha Residency {% endblock title %}
 {% block body %}
 
 <!--Crousal start here-->
@@ -67,7 +67,7 @@
     <form action="" method="POST">
       {% csrf_token %}
       <div class="row justify-content-center py-5 bg-light">
-        <div class="col-lg-4">
+        {% comment %} <div class="col-lg-4">
           <label for="">Location</label>
           <select class="form-control" name="search_location" id="roomstatus">
             <!--Hotel id and location-->
@@ -77,7 +77,7 @@
             <option value="{{each_hotel_id}}">{{each_location}}</option>
             {% endfor %}
           </select>
-        </div>
+        </div> {% endcomment %}
         {%load app_tags%}
         <div class="col-lg-2">
           <label for="">Check in</label>

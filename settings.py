@@ -25,7 +25,7 @@ SECRET_KEY = 'cafusabcdefghiacfdeysaczdsfoapqwsbbbbbbbbbbbsaaaaaaaaaaa' #this is
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.59.5.47', 'www.hotelsinharesidency.com', 'hotelsinharesidency.com']
+ALLOWED_HOSTS = ['139.59.2.210']
 
 
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'hotel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,5 +121,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")

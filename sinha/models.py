@@ -5,7 +5,7 @@ class Hotels(models.Model):
     #h_id,h_name,owner ,location,rooms
     name = models.CharField(max_length=30,default="sinha")
     owner = models.CharField(max_length=20)
-    location = models.CharField(max_length=50)
+    # location = models.CharField(max_length=50)
     state = models.CharField(max_length=50,default="madhya pradesh")
     country = models.CharField(max_length=50,default="india")
     def __str__(self):
@@ -46,4 +46,14 @@ class Reservation(models.Model):
     def __str__(self):
         return self.guest.username
 
+
+class Inventory(models.Model):
+
+    item_name = models.CharField(max_length=50)
+    item_total = models.IntegerField(max_length=3)
+    item_available = models.IntegerField(max_length=3)
+    item_not_available = models.IntegerField(max_length=3, default=0)
+    
+    def __str__(self):
+        return self.item_name
 

@@ -9,14 +9,16 @@
         <th>Name of item</th>
         <th>Total</th>
         <th>Available</th>
+        <th>Not Available</th>
     </thead>
 
-
+    {% for item in items %}
     <tr>
-        <td>Bed sheet</td>
-        <td>40</td>
-        <td>20</td>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.item_total }}</td>
+        <td>{{ item.item_available }}</td>
+        <td>{{ item.item_not_available }}</td>
     </tr>
-
+    {% endfor %}
 </table>
 {% endblock body %}
