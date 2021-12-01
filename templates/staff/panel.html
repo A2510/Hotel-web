@@ -205,7 +205,7 @@
 <Button class="btn-group btn-primary" data-toggle="modal" data-target="#newroom">Add New Room</Button>
 
 
-<Button class="btn-group btn-primary " data-toggle="modal" data-target="#newlocation">Add New Location</Button>
+{% comment %} <Button class="btn-group btn-primary " data-toggle="modal" data-target="#newlocation">Add New Location</Button> {% endcomment %}
 
 <table class="table table-striped  ">
     <thead>
@@ -239,7 +239,7 @@
 </table>
 <!---->
 
-<!--Modal for Add New Location starts from here-->
+{% comment %} <!--Modal for Add New Location starts from here-->
 
 <!-- The Modal -->
 <div class="modal" id="newlocation">
@@ -293,7 +293,7 @@
         </div>
     </div>
 </div>
-<!--Modal for Add New location Ends here-->
+<!--Modal for Add New location Ends here--> {% endcomment %}
 
 <!--Modal for Add New Room starts from here-->
 
@@ -348,7 +348,7 @@
                                         
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                {% comment %} <div class="form-group">
                                     <label for="pwd">Location:</label>
 
                                     <select class="form-control" name="hotel" id="hotel">
@@ -358,7 +358,7 @@
                                         
                                         
                                     </select>
-                                </div>
+                                </div> {% endcomment %}
                                 <button type="submit" class="btn btn-primary">Add Room</button>
                             </form>
                         </div>

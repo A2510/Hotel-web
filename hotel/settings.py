@@ -25,7 +25,7 @@ SECRET_KEY = 'cafusabcdefghiacfdeysaczdsfoapqwsbbbbbbbbbbbsaaaaaaaaaaa' #this is
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.59.5.47', 'www.hotelsinharesidency.com', 'hotelsinharesidency.com']
+ALLOWED_HOSTS = []
 
 
 

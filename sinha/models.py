@@ -49,10 +49,11 @@ class Reservation(models.Model):
 
 class Inventory(models.Model):
 
+    item_id=models.IntegerField()
     item_name = models.CharField(max_length=50)
-    item_total = models.IntegerField(max_length=3)
-    item_available = models.IntegerField(max_length=3)
-    item_not_available = models.IntegerField(max_length=3, default=0)
+    item_total = models.IntegerField()
+    item_available = models.IntegerField()
+    item_not_available = models.IntegerField()
     
     def __str__(self):
         return self.item_name

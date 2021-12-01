@@ -34,7 +34,12 @@ urlpatterns = [
     path('staff/panel', views.panel,name="staffpanel"),
     path('staff/allbookings', views.all_bookings,name="allbookigs"),
     path('staff/inventory', views.inventory,name="inventory"),
-    
+    path('staff/panel/add-new-item', views.add_new_item,name="additem"),
+
+    path('staff/panel/edit-item', views.edit_item),
+    path('staff/panel/edit-item/edit', views.edit_item),
+    # path('staff/panel/view-item', views.view_item),
+
     path('staff/panel/add-new-location', views.add_new_location,name="addnewlocation"),
     path('staff/panel/edit-room', views.edit_room),
     path('staff/panel/add-new-room', views.add_new_room,name="addroom"),
@@ -45,3 +50,4 @@ urlpatterns = [
     
 
 ]
+

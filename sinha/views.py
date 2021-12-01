@@ -174,7 +174,7 @@ def panel(request):
     unavailable_rooms = len(Rooms.objects.all().filter(status='2'))
     reserved = len(Reservation.objects.all())
 
-    hotel = Hotels.objects.values_list('location','id').distinct().order_by()
+    hotel = Hotels.objects.values_list('id').distinct().order_by()
 
     response = render(request,'staff/panel.html',{'location':hotel,'reserved':reserved,'rooms':rooms,'total_rooms':total_rooms,'available':available_rooms,'unavailable':unavailable_rooms})
     return HttpResponse(response)
@@ -337,11 +337,55 @@ def all_bookings(request):
     if not bookings:
         messages.warning(request,"No Bookings Found")
     return HttpResponse(render(request,'staff/allbookings.html',{'bookings':bookings}))
-    
+ 
+ #for Inventory page of staf    
 @login_required(login_url='/staff')
 def inventory(request):
     all_items = Inventory.objects.all()
     # Inventory.objects.all().delete()
     return render(request, 'staff/inventory.html', {'items' : all_items})
+
+#for adding an item to inventory
+@login_required(login_url='/staff')
+def add_new_item(request):
+    if request.user.is_staff == False:
+        return HttpResponse('Access Denied')
+    if request.method == "POST":
+        total_rooms = len(Rooms.objects.all())
+        new_item = Inventory()
+        new_item.item_id=total_rooms+1
+        new_item.item_name           = request.POST['name']
+        new_item.item_total          = int(request.POST['total'])
+        new_item.item_available      = int(request.POST['total'])
+        new_item.item_not_available  = 0
+        
+        new_item.save()
+        messages.success(request,"New Item Added Successfully")
+    
+    return redirect('inventory')
+
+    #for editing items in inventory
+@login_required(login_url='/staff')
+def edit_item(request):
+    if request.user.is_staff == False:   
+        return HttpResponse('Access Denied')
+    if request.method == 'POST' and request.user.is_staff:
+        print(request.POST)
+        old_item = Inventory.objects.all().get(request.POST['id'])
+        old_item.item_name           = request.POST['name']
+        old_item.item_total          = int(request.POST['total'])
+        old_item.item_available      = int(request.POST['total'])- int(request.POST['not_available'])
+        old_item.item_not_available  = int(request.POST['not_available'])
+        
+        old_item.save()
+        messages.success(request,"Item Details Updated Successfully")
+        return redirect('Inventory')
+    else:
+    
+        item_name = request.GET['id']
+        inventory = Inventory.objects.all().get(id=item_name)
+        response = render(request,'staff/edititem.html',{'inventory':inventory})
+        return HttpResponse(response)
+  
 
         
