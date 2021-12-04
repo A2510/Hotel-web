@@ -351,9 +351,9 @@ def add_new_item(request):
     if request.user.is_staff == False:
         return HttpResponse('Access Denied')
     if request.method == "POST":
-        total_rooms = len(Rooms.objects.all())
+        total_item = len(Inventory.objects.all())
         new_item = Inventory()
-        new_item.item_id=total_rooms+1
+        new_item.item_id=total_item+1
         new_item.item_name           = request.POST['name']
         new_item.item_total          = int(request.POST['total'])
         new_item.item_available      = int(request.POST['total'])
@@ -364,13 +364,14 @@ def add_new_item(request):
     
     return redirect('inventory')
 
-    #for editing items in inventory
+#for editing items in inventory
 @login_required(login_url='/staff')
 def edit_item(request):
     if request.user.is_staff == False:   
         return HttpResponse('Access Denied')
     if request.method == 'POST' and request.user.is_staff:
-        print(request.POST)
+        # print(request.POST)
+        print(request.POST['id'])
         old_item = Inventory.objects.all().get(request.POST['id'])
         old_item.item_name           = request.POST['name']
         old_item.item_total          = int(request.POST['total'])
