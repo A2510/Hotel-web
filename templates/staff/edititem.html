@@ -1,6 +1,5 @@
 {% extends 'basic.html' %}
-{% block title %}Edit Item
-{% endblock title %}
+{% block title %}Edit Item{% endblock title %}
 {% block css %}
 <style>
         .progress {
@@ -96,11 +95,10 @@
         }
     </style>
 {% endblock css %}
+
 {% block body %}
-<h1 class="text-center bg-warning my-0">Edit Item</h1>
     <!--Staff section -->
     <div class="container">
-
         <div class="row">
             <div class="col-md-6 col-lg-6 col-xlg-6 col-sm-12 mx-auto">
 
@@ -130,6 +128,8 @@
                     <input type="hidden" name="available" id="available" value="{{item.item_available}}">
                     <input type="hidden" class="form-control " id="not_available" name="not_available" value="{{item.item_not_available}}">
                 </form>
+                <h1 class="text-center bg-warning my-0">Edit Item</h1>
+
             </div>
         </div>
     </div>
